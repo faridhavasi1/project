@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from . models import Post
 # Create your views here.
 def home(request):
-   post=Post.objects.filter(status='published_date')
+   post=Post.objects.all()
    context={
        'post':post
    }

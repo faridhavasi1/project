@@ -9,7 +9,7 @@ from django.utils import timezone
 
 class PostManager(models.Manager):
     def published_posts(self):
-        return self.objects.filter(status='published_date')
+        return self.objects.filter(status='p')
 
 
 class Post(models.Model):
