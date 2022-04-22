@@ -1,4 +1,6 @@
-{% for post in post %}
-     {{ post.title }}
+{% for post in posts %}
+     
+     <a href="{% url 'blog:home' post.slug %}">{{post.title}}</a>
+
 {% endfor %}
      
