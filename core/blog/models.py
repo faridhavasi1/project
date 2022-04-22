@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from pytz import timezone
 from django.utils import timezone
+from django.urls import reverse
 # Create your models here.
 # managers
 
@@ -27,6 +28,10 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     status=models.CharField(max_length=1, choices=STATUS_CHOICES, default='draft_date')
     objects = PostManager()
+    
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', args={'slug': self.slug})
+    
     class Meta:
         ordering = ['-published_date']
         verbose_name_plural = 'Posts'
