@@ -1,13 +1,10 @@
 
-{% for post in posts %}                       
+{% for post in posts %}         
+<span stailer="display:inline-block;width:100%;">              
 <ul>                         
-   <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>                        
+   <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+
 </ul>
-{% block pager %}
-    {% include 'blog/pager.html' with=page=posts %}
-
-{% endblock pager %}
-
-
-
+</span>
 {% endfor %}
+"""

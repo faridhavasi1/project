@@ -5,16 +5,11 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from . models import Post
 # Create your views here.
 def home(request):
-   post=Post.objects.published_posts()
-   Paginator=Paginator(Post.objects.published_posts(),1)
-   page=request.GET.get('page')
-           
-   context={
-       'posts':post
-   }
-   return render(request,'blog/home.html',context)
-
-
+    post=Post.objects.published_posts()
+    context={
+        "posts":post
+    }
+    return render(request,'blog/home.html',context)
 def post_detail(request,slug):
     
     post=get_object_or_404(Post,slug=slug,status='p')
