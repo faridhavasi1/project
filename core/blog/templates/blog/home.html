@@ -2,5 +2,12 @@
 {% for post in posts %}                       
 <ul>                         
    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>                        
-</ul>                       
+</ul>
+{% block pager %}
+    {% include 'blog/pager.html' with=page=posts %}
+
+{% endblock pager %}
+
+
+
 {% endfor %}

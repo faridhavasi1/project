@@ -1,0 +1,15 @@
+{%block pager %}
+<div>
+    <span style="color:crimson" >
+    {% if page_has_previous %}
+        <a href="?page={{ page_previous_number}}">Previous</a>
+
+    {% endif %}
+    </span>
+    <span style="color:red" >
+    {% if page_has_next %}
+        <a href="?page={{ page_next_number }}">Next</a>
+    {% endif %}
+    </span>
+</div>
+{% endblock %}
